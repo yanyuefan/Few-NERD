@@ -11,6 +11,8 @@ This is the source code of the ACL-IJCNLP 2021 paper:  [**Few-NERD: A Few-shot N
 
 \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\* **Updates** \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
 
+- 09/03/2022: We have added the training script for supervised training using BERT tagger. Run `bash data/download.sh supervised` to download the data, and then run `bash run_supervised.sh`.
+
 - 01/09/2021: We have modified the results of the supervised setting of Few-NERD in arxiv, thanks for the help of [PedroMLF](https://github.com/PedroMLF).
 
 - 19/08/2021: **Important💥** In accompany with the released episode data, we have updated the training script. Simply add `--use_sampled_data` when running `train_demo.py` to train and test on the released episode data.
@@ -228,14 +230,30 @@ python3 train_demo.py  --mode inter \
 If you use Few-NERD in your work, please cite our paper:
 
 ```bibtex
-@inproceedings{ding2021few,
-title={Few-NERD: A Few-Shot Named Entity Recognition Dataset},
-author={Ding, Ning and Xu, Guangwei and Chen, Yulin, and Wang, Xiaobin and Han, Xu and Xie, Pengjun and Zheng, Hai-Tao and Liu, Zhiyuan},
-booktitle={ACL-IJCNLP},
-year={2021}
+@inproceedings{ding-etal-2021-nerd,
+    title = "Few-{NERD}: A Few-shot Named Entity Recognition Dataset",
+    author = "Ding, Ning  and
+      Xu, Guangwei  and
+      Chen, Yulin  and
+      Wang, Xiaobin  and
+      Han, Xu  and
+      Xie, Pengjun  and
+      Zheng, Haitao  and
+      Liu, Zhiyuan",
+    booktitle = "Proceedings of the 59th Annual Meeting of the Association for Computational Linguistics and the 11th International Joint Conference on Natural Language Processing (Volume 1: Long Papers)",
+    month = aug,
+    year = "2021",
+    address = "Online",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2021.acl-long.248",
+    doi = "10.18653/v1/2021.acl-long.248",
+    pages = "3198--3213",
 }
 ```
 
+## License
+
+Few-NERD dataset is distributed under the CC BY-SA 4.0 license. The code is distributed under the Apache 2.0 license.
 
 
 ## Connection
@@ -243,5 +261,5 @@ year={2021}
 If you have any questions, feel free to contact
 
 - [dingn18@mails.tsinghua.edu.cn;](mailto:dingn18@mails.tsinghua.edu.cn)
-- [yl-chen17@mails.tsinghua.edu.cn;](mailto:yl-chen17@mails.tsinghua.edu.cn)
+- [yl-chen21@mails.tsinghua.edu.cn;](mailto:yl-chen21@mails.tsinghua.edu.cn)
 

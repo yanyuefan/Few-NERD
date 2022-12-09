@@ -104,6 +104,14 @@ class FewShotNERDatasetWithRandomSampling(data.Dataset):
                 classes += sample_classes
                 samplelines = []
                 index += 1
+        if samplelines:
+            sample = Sample(samplelines)
+            samples.append(sample)
+            sample_classes = sample.get_tag_class()
+            self.__insert_sample__(index, sample_classes)
+            classes += sample_classes
+            samplelines = []
+            index += 1
         classes = list(set(classes))
         return samples, classes
 
@@ -186,8 +194,8 @@ class FewShotNERDatasetWithRandomSampling(data.Dataset):
             tokens, labels = self.__get_token_label_list__(self.samples[idx])
             word, mask, text_mask, label = self.__getraw__(tokens, labels)
             word = torch.tensor(word).long()
-            mask = torch.tensor(mask).long()
-            text_mask = torch.tensor(text_mask).long()
+            mask = torch.tensor(np.array(mask)).long()
+            text_mask = torch.tensor(np.array(text_mask)).long()
             self.__additem__(idx, dataset, word, mask, text_mask, label)
         dataset['sentence_num'] = [len(dataset['word'])]
         if savelabeldic:
@@ -205,7 +213,7 @@ class FewShotNERDatasetWithRandomSampling(data.Dataset):
         return support_set, query_set
     
     def __len__(self):
-        return 1000000000
+        return 100000
 
 class FewShotNERDataset(FewShotNERDatasetWithRandomSampling):
     def __init__(self, filepath, tokenizer, max_length, ignore_label_id=-1):
